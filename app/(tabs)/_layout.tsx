@@ -1,55 +1,52 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { View, Text } from 'react-native'
+import React from 'react'
+import { Tabs } from 'expo-router'
+import Colors from '@/constants/Colors'
+import { FontAwesome5, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 
-import Colors from '../../constants/Colors';
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+    screenOptions={{
+      tabBarActiveTintColor:Colors.primary,
+    }}>
       <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
-      />
+      name="index"
+      options={{
+        tabBarLabel:"Explore",
+        tabBarIcon: ({color,size}) => <Ionicons color={color} size={size} name="search" />
+      }}
+       />
       <Tabs.Screen
-        name="two"
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+      name="wishlists"
+      options={{
+        tabBarLabel:"Wishlists",
+        tabBarIcon: ({color,size}) => <Ionicons color={color} size={size} name="heart-outline" />
+      }}
+       />
+      <Tabs.Screen
+      name="trips"
+      options={{
+        tabBarLabel:"Trips",
+        tabBarIcon: ({color,size}) => <FontAwesome5 color={color} size={size} name="airbnb" />
+      }}
+       />
+      <Tabs.Screen
+      name="inbox"
+      options={{
+        tabBarLabel:"Inbox",
+        tabBarIcon: ({color,size}) => <MaterialCommunityIcons color={color} size={size} name="message-outline" />
+      }}
+       />
+      <Tabs.Screen
+      name="profile"
+      options={{
+        tabBarLabel:"Profile",
+        tabBarIcon: ({color,size}) => <Ionicons color={color} size={size} name="person-circle-outline" />
+      }}
+       />
     </Tabs>
-  );
+  )
 }
+
+export default _layout
