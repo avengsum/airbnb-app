@@ -1,6 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { isLoaded, useFonts } from 'expo-font';
 import { SplashScreen, Stack, router, useRouter } from 'expo-router';
 import { useEffect } from 'react';
@@ -67,7 +66,7 @@ export default function RootLayout() {
 
   return(
     <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY!} tokenCache={tokenCache} >
-      <RootLayoutNav />;
+      <RootLayoutNav />
     </ClerkProvider>
   )
   
