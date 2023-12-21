@@ -92,7 +92,7 @@ function RootLayoutNav() {
           title:"Log in or sign up",
           presentation:"modal",
           headerLeft:() => (
-            <TouchableOpacity onPress={() => router.back}>
+            <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="close-outline" size={28} />
             </TouchableOpacity>
           ),

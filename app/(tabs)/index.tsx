@@ -1,13 +1,24 @@
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
-import { Link } from 'expo-router'
+import { Stack } from 'expo-router'
+import { Header } from 'react-native/Libraries/NewAppScreen'
+import ExploreHeader from '@/components/ExploreHeader'
+import Listings from '@/components/Listings'
 
 const index = () => {
+  const [category,setCategory] = useState('tiny')
+  const onDataChanged = (category: string) => {
+    console.log('category')
+  }
   return (
     <View>
-      <Link href={'/(modals)/login'}>login</Link>
-      <Link href={'/(modals)/booking'}>booking</Link>
-      <Link href={'/listing/1337'}>Listing</Link>
+     <Stack.Screen
+     options={{
+      header: () => <ExploreHeader onCategoryChanged={onDataChanged} /> 
+     }
+     }
+     />
+     <Listings  listing={[]} category={category}/>
     </View>
   )
 }

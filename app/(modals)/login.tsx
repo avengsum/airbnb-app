@@ -38,10 +38,10 @@ const login = () => {
   }
 
   return (
-    <View>
+    <View style={{margin:10}}>
       <TextInput autoCapitalize='none' placeholder='Email' style ={[defaultStyles.inputField,{marginBottom:30}]} />
       <TouchableOpacity style={defaultStyles.btn} >
-        <Text style={defaultStyles.btn}>Continue</Text>
+        <Text>Continue</Text>
       </TouchableOpacity>
       <View style={styles.separatorView}>
         <View style={{
@@ -87,9 +87,11 @@ const styles = StyleSheet.create({
     gap:10,
     alignItems:'center',
     marginVertical:30,
+    justifyContent:'center',
   },
   separtor: {
-    color:Colors.grey
+    color:Colors.grey,
+    
   },
   btnOutline: {
     backgroundColor:'#fff',
